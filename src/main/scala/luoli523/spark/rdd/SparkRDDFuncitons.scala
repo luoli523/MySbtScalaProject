@@ -30,4 +30,13 @@ object SparkRDDFuncitons {
     }
     list.toIterator
   }
+
+  def toBeGenius(iter : Iterator[String]) : Iterator[String] = {
+    var list = ListBuffer[String]()
+    while (iter.hasNext) {
+      val cur = iter.next()
+      list += s"${cur} is a genius"
+    }
+    list.toIterator
+  }
 }

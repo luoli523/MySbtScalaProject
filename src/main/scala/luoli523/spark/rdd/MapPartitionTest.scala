@@ -4,6 +4,7 @@ import org.apache.spark.sql.SparkSession
 
 import luoli523.spark.rdd.SparkRDDFuncitons.oneToTwo
 import luoli523.spark.rdd.SparkRDDFuncitons.randonLengthen
+import luoli523.spark.rdd.SparkRDDFuncitons.toBeGenius
 
 /*
  mapPartition接受一个用户函数参数
@@ -24,6 +25,10 @@ object MapPartitionTest {
     rdd.mapPartitions(oneToTwo).collect().foreach(println)
 
     rdd.mapPartitions(randonLengthen).collect().foreach(println)
+
+    val names = spark.sparkContext.parallelize(List("luoli", "guili", "guige"))
+
+    names.mapPartitions(toBeGenius).collect.foreach(println)
 
     spark.stop()
   }
