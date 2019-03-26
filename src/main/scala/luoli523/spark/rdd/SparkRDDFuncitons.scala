@@ -21,4 +21,13 @@ object SparkRDDFuncitons {
     list.toIterator
   }
 
+
+  def randonLengthen[T](iter : Iterator[T]) : Iterator[T] = {
+    var list = List[T]()
+    while (iter.hasNext) {
+      val cur = iter.next()
+      list = list ::: List.fill(scala.util.Random.nextInt(10))(cur)
+    }
+    list.toIterator
+  }
 }
