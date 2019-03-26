@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
 home="${HOME}"
-spark_home="${HOME}/soft/spark-2.4.0-bin-hadoop2.7"
-submit_script="$spark_home/bin/spark-submit"
+spark_home="${SPARK_HOME}"
+submit_script="${spark_home}/bin/spark-submit"
+
+#this="${BASH_SOURCE-$0}"
+#common_bin=$(cd -P -- "$(dirname -- "$this")" && pwd -P)
+#script="$(basename -- "$this")"
+#this="$common_bin/$script"
+
 submit_dir="${HOME}/dev/git/luoli/MySbtScalaProject"
 submit_jar="simple-spark_2.11-1.0.jar"
 
