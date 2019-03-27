@@ -27,7 +27,7 @@ object AggregateTest {
                             .getOrCreate()
 
     //val rdd = spark.sparkContext.parallelize(List(1, 2, 3, 4, 5, 6, 7, 8, 9), 3)
-    val rdd = spark.sparkContext.parallelize(Range(1, 10).toList, 3)
+    val rdd = spark.sparkContext.parallelize(List.range(1, 10), 3)
 
     // 打印list中各个partition中的元素
     rdd.mapPartitionsWithIndex(mapWithIndexFunc).collect.foreach(println)
