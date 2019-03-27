@@ -19,7 +19,7 @@ aggregate函数需要注意以下几点：
  - 两轮reduce的函数都要对各个item进行交替的组合计算
  - 每一轮的reduce计算的顺序都是不一定的。
  */
-object AggregateTest {
+object Aggregate {
 
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder()

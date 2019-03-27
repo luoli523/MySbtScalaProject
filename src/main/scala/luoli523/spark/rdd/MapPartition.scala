@@ -7,7 +7,7 @@ import luoli523.spark.rdd.SparkRDDFuncitons.randonLengthen
 import luoli523.spark.rdd.SparkRDDFuncitons.toBeGenius
 import luoli523.spark.rdd.SparkRDDFuncitons.mapWithIndexFunc
 
-object MapPartitionTest {
+object MapPartition {
 
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder()

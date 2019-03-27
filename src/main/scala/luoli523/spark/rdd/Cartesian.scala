@@ -6,7 +6,7 @@ import org.apache.spark.sql.SparkSession
 // 并返回包含笛卡尔积数据结果的新RDD
 //（Warning: 这个函数使用的时候需要慎重，因为会产生大量的中间结果数据，RDD消耗的内存会瞬间暴涨）
 
-object CartesianTest {
+object Cartesian {
 
   def main(args : Array[String]) : Unit = {
     val spark = SparkSession.builder().appName("cartesian api").getOrCreate()
