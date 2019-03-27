@@ -77,6 +77,23 @@ object AggregateTest {
     res = z.aggregate("")((x,y) => math.min(x.length, y.length).toString, (x,y) => x + y)
     println("sc.parallelize(List(\"12\",\"23\",\"345\",\"\"), 2).aggregate(\"\")((x,y) => math.min(x.length, y.length).toString, (x,y) => x + y) is: " + res)
 
+    // aggregateByKey是作用在[K,V]对的数据上的。它跟aggregate函数比较像，
+    // 只不过reduce function并不是作用在所有的item上，而是作用在同一个key的所有item上。
+    // 同时区别于aggregate，aggregateByKey初始值只作用于第一轮reduce，不参与第二轮reduce的计算。
+    val pairRDD = spark.sparkContext.parallelize(List( ("cat",2),
+                                                       ("cat", 5),
+                                                       ("mouse", 4),
+                                                       ("cat", 12),
+                                                       ("dog", 12),
+                                                       ("mouse", 2)), 2)
+    pairRDD.mapPartitionsWithIndex(mapWithIndexFunc).collect.foreach(println)
+
+    // Array[(String, Int)] = Array((dog,12), (cat,17), (mouse,6))
+    pairRDD.aggregateByKey(0)(math.max(_, _), _ + _).collect.foreach(println)
+
+    // Array[(String, Int)] = Array((dog,100), (cat,200), (mouse,200))
+    pairRDD.aggregateByKey(100)(math.max(_, _), _ + _).collect.foreach(println)
+
     spark.stop()
   }
 
