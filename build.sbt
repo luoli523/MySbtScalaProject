@@ -2,7 +2,7 @@ name := "Simple Spark"
 
 version := "1.0"
 
-scalaVersion := "2.11.12"
+scalaVersion := "2.12.8"
 
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.4.0"
 libraryDependencies += "org.apache.hadoop" % "hadoop-client" % "2.7.2"
