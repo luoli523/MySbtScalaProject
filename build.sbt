@@ -2,7 +2,7 @@ name := "Simple Spark"
 
 version := "1.0"
 
-scalaVersion := "2.11.12"
+scalaVersion := "2.12.10"
 
 val versions = new {
   val hoodie = "0.4.5"
