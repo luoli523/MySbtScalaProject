@@ -1,4 +1,4 @@
-name := "Simple Spark"
+name := "spark-luoli"
 
 version := "1.0"
 
@@ -20,4 +20,11 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-streaming-kafka-0-10" % versions.spark,
   "org.apache.spark" %% "spark-hive" % versions.spark % "provided",
   "org.apache.hadoop" % "hadoop-client" % "2.9.2",
+  "org.scalatest" %% "scalatest" % "3.0.5" % "test",
 )
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case PathList("org", "mortbay", xs @ _*) => MergeStrategy.first
+  case x => MergeStrategy.first
+}
