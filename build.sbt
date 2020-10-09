@@ -6,7 +6,7 @@ scalaVersion := "2.12.10"
 
 val versions = new {
   val hoodie = "0.4.5"
-  val spark = "2.4.0"
+  val spark = "3.0.1"
   val hbase = "1.4.9"
   val phoenix = "4.14.0-HBase-1.4"
 }
